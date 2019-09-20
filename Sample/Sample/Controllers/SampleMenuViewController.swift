@@ -43,7 +43,7 @@ class SampleMenuViewController: MenuViewController, Storyboardable {
         super.viewDidLoad()
 
         // Select the initial row
-        tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
+        tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableView.ScrollPosition.none)
 
         avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width/2
     }

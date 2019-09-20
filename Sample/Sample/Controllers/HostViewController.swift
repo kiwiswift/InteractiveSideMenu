@@ -39,7 +39,8 @@ class HostViewController: MenuContainerViewController {
 
         // Instantiate menu view controller by identifier
         self.menuViewController = SampleMenuViewController.storyboardViewController()
-
+        self.menuViewController.modalPresentationStyle = .fullScreen
+        
         // Gather content items controllers
         self.contentViewControllers = contentControllers()
 
