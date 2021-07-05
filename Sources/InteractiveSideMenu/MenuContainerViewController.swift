@@ -68,6 +68,12 @@ open class MenuContainerViewController: UIViewController {
         }
     }
 
+    /**
+     The list of all content view controllers corresponding to side menu items.
+     */
+    public var contentViewControllers = [UIViewController]()
+
+
     // MARK: - Controller lifecycle
     //
     override open func viewDidLoad() {
