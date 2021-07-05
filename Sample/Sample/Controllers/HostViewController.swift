@@ -38,16 +38,18 @@ class HostViewController: MenuContainerViewController {
         self.transitionOptions = TransitionOptions(duration: 0.4, visibleContentWidth: screenSize.width / 6)
 
         // Instantiate menu view controller by identifier
-        self.menuViewController = SampleMenuViewController.storyboardViewController()
-        self.menuViewController.modalPresentationStyle = .fullScreen
+        let menuViewController = SampleMenuViewController.storyboardViewController()
+        menuViewController.modalPresentationStyle = .fullScreen
         
         // Gather content items controllers
-        self.contentViewControllers = contentControllers()
+        menuViewController.contentViewControllers = contentControllers()
 
         // Select initial content controller. It's needed even if the first view controller should be selected.
-        self.selectContentViewController(contentViewControllers.first!)
+        self.selectContentViewController(menuViewController.contentViewControllers.first!)
 
         self.currentItemOptions.cornerRadius = 10.0
+        
+        self.menuViewController = menuViewController
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

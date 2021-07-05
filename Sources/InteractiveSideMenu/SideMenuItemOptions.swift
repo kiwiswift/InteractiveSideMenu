@@ -6,7 +6,7 @@
 //  Copyright © 2018 Handsome. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /**
  Defines the parameters for the shadow that is shown under to content controller when the side menu is open.

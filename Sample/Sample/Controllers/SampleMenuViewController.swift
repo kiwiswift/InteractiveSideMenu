@@ -38,6 +38,8 @@ class SampleMenuViewController: MenuViewController, Storyboardable {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    var contentViewControllers = [UIViewController]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +79,7 @@ extension SampleMenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuContainerViewController?.contentViewControllers.count ?? 0
+        return self.contentViewControllers.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,7 +87,7 @@ extension SampleMenuViewController: UITableViewDelegate, UITableViewDataSource {
             preconditionFailure("Unregistered table view cell")
         }
         
-        cell.titleLabel.text = menuContainerViewController?.contentViewControllers[indexPath.row].title ?? "A Controller"
+        cell.titleLabel.text = self.contentViewControllers[indexPath.row].title ?? "A Controller"
 
         return cell
     }
@@ -95,7 +97,7 @@ extension SampleMenuViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
 
-        menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers[indexPath.row])
+        menuContainerViewController.selectContentViewController(self.contentViewControllers[indexPath.row])
         menuContainerViewController.hideSideMenu()
     }
 
